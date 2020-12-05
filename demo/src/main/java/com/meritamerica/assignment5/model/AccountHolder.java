@@ -1,8 +1,13 @@
 package com.meritamerica.assignment5.model;
 
+import java.util.*;
 
 public class AccountHolder {
 
+	List<CheckingAccount> checkingAccounts = new ArrayList<CheckingAccount>();
+	List<SavingsAccount> savingsAccounts = new ArrayList<SavingsAccount>();
+	List<CDAccount> cdAccounts = new ArrayList<CDAccount>();
+	
 	String firstName;
 	String middleName;
 	String lastName;
@@ -57,5 +62,31 @@ public class AccountHolder {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
+	public CheckingAccount addCheckingAccount(CheckingAccount checkingAccount) {
+		checkingAccounts.add(checkingAccount);
+		return checkingAccount;
+	}
+	
+	public List<CheckingAccount> getCheckingAccounts() {
+		return checkingAccounts;		
+	}
+	
+	public List<SavingsAccount> addSavingsAccount(SavingsAccount savingsAccount){
+		savingsAccounts.add(savingsAccount);
+		return savingsAccounts;
+	}
+	
+	public List<SavingsAccount> getSavingsAccounts(){
+		return savingsAccounts;
+	}
+	
+	public List<CDAccount> addCDAccount(CDAccount cdAccount){
+		cdAccounts.add(cdAccount);
+		return cdAccounts;
+	}
+	
+	public List<CDAccount> getCDAccounts(){
+		return cdAccounts;
+	}
 }
