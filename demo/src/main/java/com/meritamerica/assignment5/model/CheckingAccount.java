@@ -1,24 +1,27 @@
 package com.meritamerica.assignment5.model;
 
 public class CheckingAccount {
-	long accountNumber;
+	long checkingAccountNumber;
 	double balance;
 	String dateOpened;
 	double interestRate = 0.0001;
+	int id;
+	static int nextCheckingAccountNumber = 1;
 	
 	public CheckingAccount() {
 		this.balance = 0;
 		this.dateOpened = "11111111";
 		this.interestRate = .000001;
+		this.checkingAccountNumber = nextCheckingAccountNumber++;
 	}
 	
 	
 	public long getAccountNumber() {
-		return accountNumber;
+		return checkingAccountNumber;
 	}
 
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+	public void setAccountNumber(long checkingAccountNumber) {
+		this.checkingAccountNumber = checkingAccountNumber;
 	}
 
 	public double getBalance() {

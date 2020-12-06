@@ -2,24 +2,26 @@ package com.meritamerica.assignment5.model;
 
 public class SavingsAccount {
 
-	long accountNumber;
+	long savingsAccountNumber;
 	double balance;
 	String dateOpened;
 	double interestRate = 0.01;
+	int id;
+	static int nextSavingsAccountNumber = 1;
 	
 	public SavingsAccount() {
-		this.accountNumber = accountNumber;
-		this.balance = balance;
-		this.dateOpened = dateOpened;
-		this.interestRate = interestRate;
+		this.balance = 0;
+		this.dateOpened = "";
+		this.interestRate = 0;
+		this.savingsAccountNumber = nextSavingsAccountNumber++;
 	}
 
 	public long getAccountNumber() {
-		return accountNumber;
+		return savingsAccountNumber;
 	}
 
 	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+		this.savingsAccountNumber = accountNumber;
 	}
 
 	public double getBalance() {

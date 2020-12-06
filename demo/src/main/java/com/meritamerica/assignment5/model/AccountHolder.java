@@ -2,12 +2,15 @@ package com.meritamerica.assignment5.model;
 
 import java.util.*;
 
+import javax.validation.constraints.NotBlank;
+
 public class AccountHolder {
 
 	List<CheckingAccount> checkingAccounts = new ArrayList<CheckingAccount>();
 	List<SavingsAccount> savingsAccounts = new ArrayList<SavingsAccount>();
 	List<CDAccount> cdAccounts = new ArrayList<CDAccount>();
 	
+	@NotBlank(message="First Name can not be blank")
 	String firstName;
 	String middleName;
 	String lastName;

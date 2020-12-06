@@ -8,11 +8,11 @@ public class CDAccount {
 	int term;
 	
 	public CDAccount() {
-		this.accountNumber = accountNumber;
-		this.balance = balance;
-		this.dateOpened = dateOpened;
-		this.interestRate = interestRate;
-		this.term = term;
+		this.accountNumber = 0 ;
+		this.balance = 0;
+		this.dateOpened = "";
+		this.interestRate = 0;
+		this.term = 0;
 	}
 	
 	
