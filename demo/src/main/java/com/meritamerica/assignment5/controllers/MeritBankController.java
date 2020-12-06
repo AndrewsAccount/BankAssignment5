@@ -39,11 +39,13 @@ public class MeritBankController {
 		
 	}
 	
+	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/AccountHolders")
 	public List<AccountHolder> getAccountHolders(){
 		return accountHolders;
 	}
-
+	
+	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/AccountHolders/{id}")
 	public AccountHolder getAccountHolderById(@PathVariable int id) throws AccountNotFoundException {
 		if (id-1 > accountHolders.size() ) {
@@ -66,6 +68,7 @@ public class MeritBankController {
 		return checkingAccount;
 	}
 	
+	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/AccountHolders/{id}/CheckingAccounts")
 	public List<CheckingAccount> getCheckingAccountsById(@PathVariable int id) throws AccountNotFoundException {
 		if (id-1 > accountHolders.size() ) {
@@ -87,7 +90,7 @@ public class MeritBankController {
 		accountHolders.get(id-1).addSavingsAccount(savingsAccount);
 		return savingsAccount;
 	}
-	
+	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/AccountHolders/{id}/SavingsAccounts")
 	public List<SavingsAccount> getSavingsAccountsById(@PathVariable int id) throws AccountNotFoundException{
 		if (id-1 > accountHolders.size() ) {
@@ -117,16 +120,17 @@ public class MeritBankController {
 		return accountHolders.get(id-1).getCDAccounts();
 	}
 	
+	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(value = " /CDOfferings")
-	public CDOffering postCDOffering(@RequestBody CDOffering cdOffering) {
+	public CDOffering postCDOffering(@Valid @RequestBody CDOffering cdOffering) {
 		return cdOffering;
 	}
-	
+	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/CDOfferings")
 	public List<CDOffering> getCDOfferings(){
 		return cdOfferings;
 	}
 	
-
+	
 }
 

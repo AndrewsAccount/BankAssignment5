@@ -3,6 +3,7 @@ package com.meritamerica.assignment5.model;
 import java.util.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class AccountHolder {
 
@@ -10,10 +11,17 @@ public class AccountHolder {
 	List<SavingsAccount> savingsAccounts = new ArrayList<SavingsAccount>();
 	List<CDAccount> cdAccounts = new ArrayList<CDAccount>();
 	
-	@NotBlank(message="First Name can not be blank")
+	@NotNull(message = "First Name can not be null")
+	@NotBlank(message = "First Name can not be blank")
 	String firstName;
+	@NotNull(message = "Middle Name can not be null")
+	@NotBlank(message = "Middle Name can not be blank")
 	String middleName;
+	@NotNull(message = "Last Name can not be null")
+	@NotBlank(message = "Last Name can not be blank")
 	String lastName;
+	@NotNull(message = "SSN can not be null")
+	@NotBlank(message = "SSN can not be blank")
 	String SSN;
 	int id;
 	static int nextId = 1;
