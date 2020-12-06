@@ -106,7 +106,7 @@ public class MeritBankController {
 			throw new NegativeBalanceException("Balance can not be less than 0");
 		}
 		if(cdAccount.getInterestRate() <= 0 || cdAccount.getInterestRate() >=1) {
-			throw new InterestRateOutOfBoundsException("Intrest rate must be greater t han 0 and less than 1");
+			throw new InterestRateOutOfBoundsException("Interest rate must be greater than 0 and less than 1");
 		}
 		
 		accountHolders.get(id).addCDAccount(cdAccount);
