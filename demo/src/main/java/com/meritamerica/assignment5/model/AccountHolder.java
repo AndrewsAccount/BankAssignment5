@@ -23,6 +23,7 @@ public class AccountHolder {
 	@NotNull(message = "SSN can not be null")
 	@NotBlank(message = "SSN can not be blank")
 	String SSN;
+	
 	int id;
 	static int nextId = 1;
 	
