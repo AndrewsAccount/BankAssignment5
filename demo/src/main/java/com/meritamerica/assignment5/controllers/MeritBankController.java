@@ -89,14 +89,14 @@ public class MeritBankController {
 		accountHolders.get(id).addSavingsAccount(savingsAccount);
 		return savingsAccount;
 	}
+	
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/AccountHolders/{id}/SavingsAccounts")
 	public List<SavingsAccount> getSavingsAccountsById(@PathVariable int id) throws AccountNotFoundException{
 		if (id-1 > accountHolders.size() ) {
 			throw new AccountNotFoundException("Account id not found");
 		}
-		return accountHolders.get(id).getSavingsAccounts();
-				
+		return accountHolders.get(id).getSavingsAccounts();				
 	}
 	
 	@PostMapping(value = "/AccountHolders/{id}/CDAccounts")
@@ -107,8 +107,7 @@ public class MeritBankController {
 		}
 		if(cdAccount.getInterestRate() <= 0 || cdAccount.getInterestRate() >=1) {
 			throw new InterestRateOutOfBoundsException("Interest rate must be greater than 0 and less than 1");
-		}
-		
+		}		
 		accountHolders.get(id).addCDAccount(cdAccount);
 		return cdAccount;
 	}
@@ -123,13 +122,13 @@ public class MeritBankController {
 	@PostMapping(value = " /CDOfferings")
 	public CDOffering postCDOffering(@Valid @RequestBody CDOffering cdOffering) {
 		return cdOffering;
+		
 	}
+	
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/CDOfferings")
 	public List<CDOffering> getCDOfferings(){
 		return cdOfferings;
-	}
-	
-	
+	}	
 }
 

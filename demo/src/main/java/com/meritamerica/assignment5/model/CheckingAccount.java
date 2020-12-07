@@ -2,20 +2,19 @@ package com.meritamerica.assignment5.model;
 
 public class CheckingAccount {
 	long checkingAccountNumber;
-	double balance;
+	static long nextCheckingAccountNumber = 1;
+	double balance;	
+	double interestRate;
 	String dateOpened;
-	double interestRate = 0.0001;
-	int id;
-	static int nextCheckingAccountNumber = 1;
 	
 	public CheckingAccount() {
-		this.balance = 0;
-		this.dateOpened = "11111111";
-		this.interestRate = .000001;
 		this.checkingAccountNumber = nextCheckingAccountNumber++;
+		this.balance = 0;
+		this.interestRate = .0001;
+		this.dateOpened = "";	
+		
 	}
-	
-	
+		
 	public long getAccountNumber() {
 		return checkingAccountNumber;
 	}
@@ -32,14 +31,6 @@ public class CheckingAccount {
 		this.balance = balance;
 	}
 
-	public String getDate() {
-		return dateOpened;
-	}
-
-	public void setDate(String date) {
-		this.dateOpened = date;
-	}
-
 	public double getInterestRate() {
 		return interestRate;
 	}
@@ -48,5 +39,11 @@ public class CheckingAccount {
 		this.interestRate = interestRate;
 	}
 
+	public String getDate() {
+		return dateOpened;
+	}
 
+	public void setDate(String date) {
+		this.dateOpened = date;
+	}
 }
