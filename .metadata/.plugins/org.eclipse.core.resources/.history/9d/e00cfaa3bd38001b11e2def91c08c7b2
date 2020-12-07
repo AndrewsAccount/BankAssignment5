@@ -31,6 +31,7 @@ public class MeritBankController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(value = "/AccountHolders")
+//	@NotBlank(message = "Missing account holder information")
 	public AccountHolder postAccountHolder(@Valid @RequestBody AccountHolder accountHolder) {
 		accountHolders.add(accountHolder);
 		return accountHolder;
@@ -54,6 +55,7 @@ public class MeritBankController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(value = "/AccountHolders/{id}/CheckingAccounts")
+//	@NotBlank(message = "Missing checking account information")
 	public CheckingAccount postCheckingAccount(@Valid @RequestBody CheckingAccount checkingAccount, @PathVariable int id) throws NegativeBalanceException, ExceedsCombinedBalanceLimitException {
 		if(checkingAccount.getBalance()< 0) {
 			throw new NegativeBalanceException("Balance can not be less 0");
@@ -76,6 +78,7 @@ public class MeritBankController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(value = "/AccountHolders/{id}/SavingsAccounts")
+//	@NotBlank(message = "Missing saving account information")
 	public SavingsAccount postSavingsAccount(@Valid @RequestBody SavingsAccount savingsAccount, @PathVariable int id) throws NegativeBalanceException, ExceedsCombinedBalanceLimitException {
 		if(savingsAccount.getBalance()< 0) {
 			throw new NegativeBalanceException("Balance can not be less 0");
@@ -96,8 +99,8 @@ public class MeritBankController {
 		return accountHolders.get(id).getSavingsAccounts();				
 	}
 	
-	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(value = "/AccountHolders/{id}/CDAccounts")
+//	@NotBlank(message = "Missing CD account information")
 	public CDAccount postCDAccoutnt(@Valid @RequestBody CDAccount cdAccount, @PathVariable int id) throws NegativeBalanceException, ExceedsCombinedBalanceLimitException, InterestRateOutOfBoundsException {
 		if(cdAccount.getBalance()<0){
 			throw new NegativeBalanceException("Balance can not be less than 0");
