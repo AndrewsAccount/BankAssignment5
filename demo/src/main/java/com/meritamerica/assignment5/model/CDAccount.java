@@ -1,44 +1,17 @@
 package com.meritamerica.assignment5.model;
 
-public class CDAccount {
-	long accountNumber;
-	double balance;
-	String dateOpened;
-	double interestRate = 0.025;
+public class CDAccount extends BankAccount{
 	int term;
+	double interestRate;
 	
 	public CDAccount() {
-		this.accountNumber = 0 ;
-		this.balance = 0;
-		this.dateOpened = "";
-		this.interestRate = 0;
-		this.term = 0;
-	}
-	
-	
-	public long getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
+		this.accountNumber = accountNumber ;
 		this.balance = balance;
-	}
-
-	public String getDateOpened() {
-		return dateOpened;
-	}
-
-	public void setDateOpened(String dateOpened) {
 		this.dateOpened = dateOpened;
+		this.interestRate = interestRate;
+		this.term = term;
 	}
+	
 
 	public double getInterestRate() {
 		return interestRate;

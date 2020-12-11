@@ -110,15 +110,11 @@ public class AccountHolder {
 		return combinedCheckingBalance;
 	}
 	
-	public int getCombinedSavingsBalance() {
-		int combinedSavingsBalance = 0;
-		for (BankAccount savAcct : checkingAccounts) {
-			combinedSavingsBalance += savAcct.getBalance();
-		}
-		return combinedSavingsBalance;
-	}
-	
 	public int getCombinedBalances() {
-		return getCombinedSavingsBalance() + getCombinedCheckingBalance();
+		int balance;
+		for () {
+			
+		}
+		return 
 	}
 }

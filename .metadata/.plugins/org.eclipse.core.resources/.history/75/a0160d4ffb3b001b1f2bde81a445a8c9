@@ -101,24 +101,4 @@ public class AccountHolder {
 	public List<CDAccount> getCDAccounts(){
 		return cdAccounts;
 	}
-	
-	public int getCombinedCheckingBalance() {
-		int combinedCheckingBalance = 0;
-		for (BankAccount checkAcct : checkingAccounts) {
-			combinedCheckingBalance += checkAcct.getBalance();
-		}
-		return combinedCheckingBalance;
-	}
-	
-	public int getCombinedSavingsBalance() {
-		int combinedSavingsBalance = 0;
-		for (BankAccount savAcct : checkingAccounts) {
-			combinedSavingsBalance += savAcct.getBalance();
-		}
-		return combinedSavingsBalance;
-	}
-	
-	public int getCombinedBalances() {
-		return getCombinedSavingsBalance() + getCombinedCheckingBalance();
-	}
 }
