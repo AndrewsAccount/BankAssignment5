@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.meritamerica.assignment5.model.AccountHolder;
+import com.meritamerica.assignment5.model.BankAccount;
 import com.meritamerica.assignment5.model.CDAccount;
 import com.meritamerica.assignment5.model.CDOffering;
 import com.meritamerica.assignment5.model.CheckingAccount;
@@ -21,7 +22,6 @@ import com.meritamerica.assignment5.model.SavingsAccount;
 import Exceptions.AccountNotFoundException;
 import Exceptions.NegativeBalanceException;
 import Exceptions.ExceedsCombinedBalanceLimitException;
-import Exceptions.InterestRateOutOfBoundsException;
 
 
 //@Repository
@@ -79,14 +79,14 @@ public class MeritBankController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(value = "/AccountHolders/{id}/SavingsAccounts")
-	public SavingsAccount postSavingsAccount(@Valid @RequestBody SavingsAccount savingsAccount, @PathVariable int id) throws NegativeBalanceException, ExceedsCombinedBalanceLimitException {
-		if(savingsAccount.getBalance()  < 0) {
+	public BankAccount postSavingsAccount(@Valid @RequestBody SavingsAccount savingsAccount, @PathVariable int id) throws NegativeBalanceException, ExceedsCombinedBalanceLimitException {
+		if(savingAccount.getBalance()  < 0) {
 			throw new NegativeBalanceException("Balance can not be less 0");
 		}
 		if(savingsAccount.getBalance() + getAccountHolderById(id).getCombinedBalances() > 250000) {
 			throw new ExceedsCombinedBalanceLimitException("Balance exceeds limit.");
 		}
-		accountHolders.get(id).addSavingsAccount(savingsAccount);
+		accountHolders.get(id).addSavingAccount(savingsAccount);
 		return savingsAccount;
 	}
 	
