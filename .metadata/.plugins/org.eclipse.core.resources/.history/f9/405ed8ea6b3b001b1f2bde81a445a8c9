@@ -1,0 +1,20 @@
+package com.meritamerica.assignment5.model;
+
+public class SavingsAccount {
+	
+static double interestRate = 0.0001;
+	
+	public CheckingAccount(double interestRate) {
+		super();
+		this.interestRate = interestRate;
+	}
+
+	public double getInterestRate() {
+		return interestRate;
+	}
+
+	public void setInterestRate(double interestRate) {
+		this.interestRate = interestRate;
+	}
+		
+}
